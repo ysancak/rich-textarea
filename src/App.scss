@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-color: rgb(238, 239, 242);
+  -webkit-font-smoothing: antialiased;
+}
+
+$textarea_mark_bg: #fffde7;
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  .container {
+    width: 800px;
+    padding: 2px;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 2px 19px -5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 19px -5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 400ms, border 400ms;
+    &:focus-within {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: 1px solid #2e38c6;
+    }
+    .textarea {
+      padding: 25px 25px 65px 25px;
+      min-height: 120px;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      resize: vertical;
+      text-align: left;
+      line-height: 26px;
+      .txtarea-u {
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color: #bdbdbd;
+        background-color: $textarea_mark_bg;
+      }
+      .txtarea-g {
+        cursor: pointer;
+        background-color: $textarea_mark_bg;
+        &::after {
+          content: "1";
+          font-size: 10px;
+          margin: 10px -2px;
+        }
+      }
+      .txtarea-b {
+        cursor: pointer;
+        text-decoration: line-through;
+        text-decoration-color: #ff4268;
+        background-color: $textarea_mark_bg;
+      }
+      &:empty::before {
+        content: attr(placeholder);
+        color: rgb(150, 150, 150);
+      }
+    }
+    .info-box {
+      display: flex;
+      padding: 14px 25px;
+      bottom: 0;
+      pointer-events: none;
+      width: inherit;
+      box-sizing: border-box;
+      position: absolute;
+      .left {
+        flex: 1;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 300;
+        color: rgb(150, 150, 150);
+      }
+      .left,
+      .right {
+        display: flex;
+        align-items: center;
+        height: 40px;
+      }
+    }
+  }
+}
